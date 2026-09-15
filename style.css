@@ -1,0 +1,681 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b1d3a 0%,
+            #050914 45%,
+            #02040a 100%
+        );
+
+    color: #e8f3ff;
+
+    min-height: 100vh;
+}
+
+
+/* ========================
+   全体
+   ======================== */
+
+.container {
+    width: 90%;
+    max-width: 650px;
+
+    margin: 50px auto;
+}
+
+
+/* ========================
+   タイトル
+   ======================== */
+
+h1 {
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    font-size: 36px;
+    letter-spacing: 5px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px #168cff,
+        0 0 25px #168cff;
+}
+
+
+/* ========================
+   日付
+   ======================== */
+
+#date {
+    text-align: center;
+
+    margin: 0;
+
+    color: #75bfff;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(50, 150, 255, 0.8);
+}
+
+
+/* ========================
+   日付ナビゲーション
+   ======================== */
+
+.date-navigation {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+.date-navigation button {
+    padding: 10px 15px;
+
+    border: 1px solid #1769aa;
+
+    border-radius: 8px;
+
+    background: rgba(10, 30, 60, 0.8);
+
+    color: #8dccff;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.date-navigation button:hover {
+    background: #0b3b70;
+
+    box-shadow:
+        0 0 10px #168cff;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================
+   今日に戻る
+   ======================== */
+
+#todayButton {
+    display: block;
+
+    margin: 0 auto 25px;
+
+    padding: 9px 18px;
+
+    border: 1px solid #168cff;
+
+    border-radius: 20px;
+
+    background: transparent;
+
+    color: #69b9ff;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#todayButton:hover {
+    background: rgba(22, 140, 255, 0.15);
+
+    box-shadow:
+        0 0 15px rgba(22, 140, 255, 0.7);
+}
+
+
+/* ========================
+   カレンダー
+   ======================== */
+
+#datePicker {
+    display: block;
+
+    margin: 0 auto 30px;
+
+    padding: 9px;
+
+    border: 1px solid #1769aa;
+
+    border-radius: 8px;
+
+    background: #07101f;
+
+    color: #bfe3ff;
+
+    color-scheme: dark;
+
+    cursor: pointer;
+}
+
+
+/* ========================
+   タスクセクション
+   ======================== */
+
+.task-section {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13, 32, 58, 0.95),
+            rgba(4, 10, 20, 0.95)
+        );
+
+    border: 1px solid rgba(45, 145, 255, 0.35);
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 0 20px rgba(0, 110, 255, 0.12),
+        inset 0 0 20px rgba(0, 120, 255, 0.04);
+
+    overflow: hidden;
+}
+
+
+/* 上側の青いライン */
+
+.task-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: #168cff;
+
+    box-shadow:
+        0 0 10px #168cff,
+        0 0 20px #168cff;
+}
+
+
+/* ========================
+   セクションタイトル
+   ======================== */
+
+.task-section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+
+    color: #69b9ff;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 8px rgba(22, 140, 255, 0.7);
+}
+
+
+/* ========================
+   入力エリア
+   ======================== */
+
+.input-area {
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.input-area input {
+    flex: 1;
+
+    padding: 11px;
+
+    font-size: 15px;
+
+    border: 1px solid #1c5c91;
+
+    border-radius: 7px;
+
+    background: rgba(2, 8, 18, 0.9);
+
+    color: #e8f3ff;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+.input-area input:focus {
+    border-color: #168cff;
+
+    box-shadow:
+        0 0 10px rgba(22, 140, 255, 0.5);
+}
+
+
+.input-area input::placeholder {
+    color: #52718f;
+}
+
+
+/* ========================
+   追加ボタン
+   ======================== */
+
+.input-area button {
+    padding: 10px 18px;
+
+    border: 1px solid #168cff;
+
+    border-radius: 7px;
+
+    background: #08386b;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.input-area button:hover {
+    background: #0b579e;
+
+    box-shadow:
+        0 0 12px rgba(22, 140, 255, 0.8);
+}
+
+
+/* ========================
+   リスト
+   ======================== */
+
+ul {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+/* ========================
+   タスク
+   ======================== */
+
+li {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 5px;
+
+    border-bottom: 1px solid rgba(60, 130, 190, 0.2);
+
+    transition: 0.2s;
+}
+
+
+li:hover {
+    background: rgba(20, 100, 180, 0.08);
+}
+
+
+/* ========================
+   タスク文字
+   ======================== */
+
+li span {
+    flex: 1;
+
+    color: #d7ebff;
+
+    font-size: 15px;
+}
+
+
+/* ========================
+   完了
+   ======================== */
+
+.completed {
+    text-decoration: line-through;
+
+    color: #53677a;
+
+    opacity: 0.7;
+}
+
+
+/* ========================
+   チェックボックス
+   ======================== */
+
+li input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #168cff;
+
+    cursor: pointer;
+}
+
+
+/* ========================
+   編集ボタン
+   ======================== */
+
+.edit-button {
+    border: 1px solid #276b9e;
+
+    border-radius: 5px;
+
+    background: transparent;
+
+    color: #72bfff;
+
+    padding: 5px 9px;
+
+    cursor: pointer;
+}
+
+
+.edit-button:hover {
+    background: #0b355c;
+
+    box-shadow:
+        0 0 8px rgba(22, 140, 255, 0.5);
+}
+
+
+/* ========================
+   削除ボタン
+   ======================== */
+
+.delete-button {
+    border: 1px solid #71394a;
+
+    border-radius: 5px;
+
+    background: transparent;
+
+    color: #ff6b8a;
+
+    padding: 5px 9px;
+
+    cursor: pointer;
+}
+
+
+.delete-button:hover {
+    background: #481d2c;
+
+    box-shadow:
+        0 0 8px rgba(255, 70, 120, 0.5);
+}
+
+
+/* ========================
+   達成率
+   ======================== */
+
+#progress {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(145deg, #0b0f17, #111827);
+  border: 1px solid #1e5eff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(30, 94, 255, 0.25);
+  color: white;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-header span:first-child {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #7da2ff;
+}
+
+#progressPercentage {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4d8dff;
+  text-shadow: 0 0 8px rgba(77, 141, 255, 0.8);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #05070c;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1b2a4a;
+}
+
+#progressBarFill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #155cff,
+    #00b7ff
+  );
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 183, 255, 0.8);
+  transition: width 0.4s ease;
+}
+
+/* ========================
+   スマホ
+   ======================== */
+
+@media (max-width: 500px) {
+
+    .container {
+        width: 94%;
+
+        margin: 25px auto;
+    }
+
+
+    h1 {
+        font-size: 28px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .task-section {
+        padding: 16px;
+    }
+
+
+    .input-area {
+        flex-wrap: wrap;
+    }
+
+
+    .input-area input {
+        min-width: 0;
+    }
+
+
+    .input-area button {
+        padding: 10px 15px;
+    }
+
+
+    li {
+        gap: 7px;
+    }
+
+
+    .edit-button,
+    .delete-button {
+        padding: 5px 7px;
+
+        font-size: 12px;
+    }
+
+}
+
+/* =========================
+   Daily Schedule
+   ========================= */
+
+.schedule-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: linear-gradient(145deg, #0b0f17, #111827);
+  border: 1px solid #1e5eff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(30, 94, 255, 0.2);
+}
+
+.schedule-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #7da2ff;
+}
+
+#scheduleList {
+  position: relative;
+  padding-left: 70px;
+}
+
+#scheduleList::before {
+  content: "";
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1e5eff;
+  box-shadow: 0 0 8px rgba(30, 94, 255, 0.8);
+}
+
+.schedule-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1b2a4a;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-item::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00b7ff;
+  box-shadow:
+    0 0 6px #00b7ff,
+    0 0 14px rgba(0, 183, 255, 0.8);
+}
+
+.schedule-time {
+  position: absolute;
+  left: -70px;
+  width: 55px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: right;
+  color: #4d8dff;
+}
+
+.schedule-task {
+  flex: 1;
+  padding-left: 10px;
+  color: #e8f0ff;
+}
+
+.current-hour {
+  background: rgba(30, 94, 255, 0.12);
+  border-radius: 6px;
+}
+
+.current-hour .schedule-time {
+  color: #00b7ff;
+  text-shadow: 0 0 8px rgba(0, 183, 255, 0.8);
+}
+
+.current-hour::before {
+  width: 12px;
+  height: 12px;
+  background: #00b7ff;
+  box-shadow:
+    0 0 8px #00b7ff,
+    0 0 18px rgba(0, 183, 255, 0.9);
+}
+
+#graphButton {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  background: linear-gradient(135deg, #111827, #0b0f17);
+  border: 1px solid #1e5eff;
+  border-radius: 10px;
+  color: #7da2ff;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(30, 94, 255, 0.2);
+  transition: 0.2s;
+}
+
+#graphButton:hover {
+  background: #101d38;
+  color: #00b7ff;
+  box-shadow: 0 0 18px rgba(0, 183, 255, 0.4);
+}
+
+#graphButton:active {
+  transform: scale(0.98);
+}

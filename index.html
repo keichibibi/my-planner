@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>My Planner</h1>
+
+        <!-- 日付切り替え -->
+        <div class="date-navigation">
+
+            <button id="previousDayButton">← 前の日</button>
+
+            <div>
+                <p id="date"></p>
+            </div>
+
+            <button id="nextDayButton">次の日 →</button>
+
+        </div>
+
+        <!-- 今日に戻る -->
+        <button id="todayButton">今日に戻る</button>
+
+        <input type="date" id="datePicker">
+
+        <!-- やること -->
+        <section class="task-section">
+
+            <h2>やること</h2>
+
+            <div class="input-area">
+
+                <input type="time" id="todoTime">
+                <input
+                    type="text"
+                    id="todoInput"
+                    placeholder="やることを入力"
+                >
+
+                <button id="todoAddButton">追加</button>
+
+            </div>
+
+            <ul id="todoList"></ul>
+
+        </section>
+
+        <section class="schedule-section">
+            <h2>DAILY SCHEDULE</h2>
+            <div id="scheduleList"></div>
+        </section>
+
+        <!-- やらないこと -->
+        <section class="task-section">
+
+            <h2>やらないこと</h2>
+
+            <div class="input-area">
+
+                <input
+                    type="text"
+                    id="notTodoInput"
+                    placeholder="やらないことを入力"
+                >
+
+                <button id="notTodoAddButton">追加</button>
+
+            </div>
+
+            <ul id="notTodoList"></ul>
+
+        </section>
+
+        <div id="progress">
+            <div class="progress-header">
+                <span>DAILY PROGRESS</span>
+                <span id="progressPercentage">0%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressBarFill"></div>
+            </div>
+        </div>
+
+        <button id="graphButton">
+            📊 グラフを見る
+        </button>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background: #05070c;
+  color: #e8f0ff;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #4d8dff;
+  text-shadow: 0 0 10px rgba(77, 141, 255, 0.6);
+}
+
+.graph-section {
+  padding: 20px;
+  background: linear-gradient(145deg, #0b0f17, #111827);
+  border: 1px solid #1e5eff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(30, 94, 255, 0.2);
+}
+
+.graph-section h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #7da2ff;
+}
+
+#weeklyChart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 250px;
+  padding: 20px 10px 0;
+  border-bottom: 1px solid #1b2a4a;
+}
+
+.chart-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.chart-value {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #00b7ff;
+}
+
+.chart-bar {
+  width: 28px;
+  min-height: 3px;
+  background: linear-gradient(to top, #155cff, #00b7ff);
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+}
+
+.chart-label {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #7da2ff;
+}
+
+#backButton {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #0b0f17;
+  border: 1px solid #1b2a4a;
+  border-radius: 10px;
+  color: #7da2ff;
+  cursor: pointer;
+}
+
+/* ====================
+   WEEKLY AVERAGE
+==================== */
+
+#weeklyAverage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+  padding: 15px 18px;
+
+  border: 1px solid #1d3f73;
+  border-radius: 10px;
+
+  background: rgba(5, 15, 30, 0.8);
+}
+
+
+.average-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #6f86aa;
+}
+
+
+.average-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #4da6ff;
+
+  text-shadow:
+    0 0 8px rgba(77, 166, 255, 0.7);
+}
+
+
+/* ====================
+   TODAY
+==================== */
+
+.today-column .chart-bar {
+  box-shadow:
+    0 0 10px rgba(77, 166, 255, 0.8),
+    0 0 20px rgba(77, 166, 255, 0.4);
+}
+
+
+.today-column .chart-label {
+  color: #4da6ff;
+  font-weight: bold;
+}
+
+
+.today-column .chart-value {
+  color: #4da6ff;
+  font-weight: bold;
+}
+
+
+/* ====================
+   0%
+==================== */
+
+.zero-bar {
+  opacity: 0.4;
+}
+
+/* ====================
+   STREAK
+==================== */
+
+#streak {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 25px;
+  padding: 18px;
+
+  border: 1px solid #1d3f73;
+  border-radius: 10px;
+
+  background: rgba(5, 15, 30, 0.8);
+}
+
+
+.streak-icon {
+  font-size: 26px;
+  margin-right: 12px;
+}
+
+
+.streak-value {
+  font-size: 30px;
+  font-weight: bold;
+
+  color: #4da6ff;
+
+  text-shadow:
+    0 0 8px rgba(77, 166, 255, 0.7);
+
+  margin-right: 8px;
+}
+
+
+.streak-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #6f86aa;
+}
+
+/* ====================
+   TODAY'S SCHEDULE
+==================== */
+
+#scheduleChart {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 10px;
+
+  height: 280px;
+
+  padding: 20px 10px 10px;
+
+  overflow-x: auto;
+
+  border-top: 1px solid #1d3f73;
+}
+
+
+.schedule-chart-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  min-width: 42px;
+
+  height: 100%;
+}
+
+
+.schedule-chart-value {
+  margin-bottom: 6px;
+
+  font-size: 11px;
+
+  color: #4da6ff;
+}
+
+
+.schedule-chart-bar {
+  width: 28px;
+
+  min-height: 4px;
+
+  border-radius: 5px 5px 2px 2px;
+
+  background: #2678c9;
+
+  box-shadow:
+    0 0 8px rgba(38, 120, 201, 0.5);
+
+  transition:
+    height 0.3s ease;
+}
+
+
+.schedule-zero-bar {
+  opacity: 0.25;
+}
+
+
+.schedule-chart-label {
+  margin-top: 10px;
+
+  font-size: 10px;
+
+  color: #6f86aa;
+
+  white-space: nowrap;
+}
+
+/* ====================
+   SCHEDULE DETAILS
+==================== */
+
+.schedule-clickable {
+  cursor: pointer;
+}
+
+
+.schedule-clickable:hover {
+  transform: scaleY(1.05);
+  filter: brightness(1.3);
+}
+
+
+#scheduleDetails {
+  margin-top: 25px;
+}
+
+
+#scheduleDetails h3 {
+  margin-bottom: 15px;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  color: #4da6ff;
+}
+
+
+.schedule-detail-item {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 12px 15px;
+
+  margin-bottom: 8px;
+
+  border-left: 2px solid #2678c9;
+  border-radius: 5px;
+
+  background: rgba(5, 15, 30, 0.8);
+}
+
+
+.schedule-detail-time {
+  min-width: 45px;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  color: #4da6ff;
+}
+
+
+.schedule-detail-text {
+  font-size: 13px;
+
+  color: #d7e5ff;
+}
