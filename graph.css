@@ -331,3 +331,118 @@ h1 {
 
   color: #d7e5ff;
 }
+
+/* ========================
+   Daily Schedule
+======================== */
+
+.schedule-section {
+    margin-top: 30px;
+    padding: 24px 20px;
+
+    border: 1px solid #008cff;
+    border-radius: 14px;
+
+    background: rgba(10, 20, 40, 0.8);
+
+    box-shadow:
+        0 0 10px rgba(0, 140, 255, 0.25),
+        inset 0 0 20px rgba(0, 80, 180, 0.08);
+}
+
+.schedule-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    color: #4da6ff;
+
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/* タイムライン */
+
+#scheduleTimeline {
+    position: relative;
+
+    margin-left: 50px;
+}
+
+/* 縦線 */
+
+#scheduleTimeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: #008cff;
+
+    box-shadow:
+        0 0 8px #008cff;
+}
+
+/* 予定 */
+
+.schedule-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 48px;
+
+    padding-left: 30px;
+
+    border-bottom: 1px solid rgba(100, 150, 200, 0.2);
+}
+
+/* 時刻 */
+
+.schedule-time {
+    position: absolute;
+
+    left: -50px;
+
+    width: 42px;
+
+    color: #168cff;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    text-align: right;
+}
+
+/* 点 */
+
+.schedule-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: -5px;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #008cff;
+
+    box-shadow:
+        0 0 8px #008cff;
+}
+
+/* タスク */
+
+.schedule-text {
+    color: #e6f4ff;
+
+    font-size: 15px;
+}

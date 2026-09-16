@@ -519,6 +519,112 @@ function displayScheduleChart() {
 }
 
 // ========================
+// Daily Schedule
+// ========================
+
+function displaySchedule() {
+
+    const scheduleTimeline =
+        document.getElementById("scheduleTimeline");
+
+    if (!scheduleTimeline) {
+        return;
+    }
+
+    scheduleTimeline.innerHTML = "";
+
+    // localStorageからデータ取得
+    const allData =
+        JSON.parse(
+            localStorage.getItem("plannerData")
+        ) || {};
+
+    // 今日の日付
+    const today =
+        new Date();
+
+    const year =
+        today.getFullYear();
+
+    const month =
+        String(today.getMonth() + 1)
+            .padStart(2, "0");
+
+    const day =
+        String(today.getDate())
+            .padStart(2, "0");
+
+    const dateKey =
+        `${year}-${month}-${day}`;
+
+    const currentData =
+        allData[dateKey];
+
+    // データがない場合
+    if (!currentData) {
+        return;
+    }
+
+    // 時間が設定されているToDoだけ取得
+    const todos =
+        currentData.todos
+            .filter(function(task) {
+
+                return task.time;
+
+            })
+            .sort(function(a, b) {
+
+                return a.time.localeCompare(b.time);
+
+            });
+
+
+    todos.forEach(function(task) {
+
+        const item =
+            document.createElement("div");
+
+        item.classList.add(
+            "schedule-item"
+        );
+
+
+        // 時間
+        const time =
+            document.createElement("span");
+
+        time.classList.add(
+            "schedule-time"
+        );
+
+        time.textContent =
+            task.time;
+
+
+        // タスク
+        const text =
+            document.createElement("span");
+
+        text.classList.add(
+            "schedule-text"
+        );
+
+        text.textContent =
+            task.text;
+
+
+        item.appendChild(time);
+
+        item.appendChild(text);
+
+        scheduleTimeline.appendChild(item);
+
+    });
+
+}
+
+// ========================
 // 戻るボタン
 // ========================
 
@@ -540,3 +646,4 @@ backButton.addEventListener(
 displayWeeklyChart();
 displayStreak();
 displayScheduleChart();
+displaySchedule();
