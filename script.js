@@ -311,12 +311,10 @@ function displayTodos() {
 
 function displayNotTodos() {
 
-    notTodoList.innerHTML = "";
-
-
     const currentData =
         getCurrentData();
 
+    notTodoList.innerHTML = "";
 
     currentData.notTodos.forEach(
         function(task, index) {
@@ -330,6 +328,7 @@ function displayNotTodos() {
                 notTodoList,
 
                 currentData.notTodos,
+
                 "notTodo"
 
             );
