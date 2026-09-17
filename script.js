@@ -301,7 +301,6 @@ function displayTodos() {
 
         }
     );
-    displaySchedule();
 }
 
 
@@ -337,81 +336,6 @@ function displayNotTodos() {
     );
 
 }
-
-function displaySchedule() {
-  const currentData = getCurrentData();
-
-  scheduleList.innerHTML = "";
-
-  const now = new Date();
-  const currentHour = now.getHours();
-
-  // 時間が設定されているToDoだけ取得
-  const scheduledTodos = currentData.todos.filter(function(task) {
-    return task.time;
-  });
-
-  // 時間順に並べる
-  scheduledTodos.sort(function(a, b) {
-    return a.time.localeCompare(b.time);
-  });
-
-  // 予定がない場合
-  if (scheduledTodos.length === 0) {
-    const emptyMessage = document.createElement("div");
-    emptyMessage.classList.add("schedule-empty");
-    emptyMessage.textContent = "予定はありません";
-    scheduleList.appendChild(emptyMessage);
-
-    return;
-  }
-
-  // 時間ごとにまとめる
-  const groupedTasks = {};
-
-  scheduledTodos.forEach(function(task) {
-    const hour = Number(task.time.split(":")[0]);
-
-    if (!groupedTasks[hour]) {
-      groupedTasks[hour] = [];
-    }
-
-    groupedTasks[hour].push(task);
-  });
-
-  // 時間ごとに表示
-  Object.keys(groupedTasks).forEach(function(hour) {
-
-    const scheduleItem = document.createElement("div");
-    scheduleItem.classList.add("schedule-item");
-
-    // 現在時刻の時間なら強調
-    if (Number(hour) === currentHour) {
-      scheduleItem.classList.add("current-hour");
-    }
-
-    const time = document.createElement("span");
-    time.classList.add("schedule-time");
-    time.textContent =
-      String(hour).padStart(2, "0") + ":00";
-
-    const taskText = document.createElement("span");
-    taskText.classList.add("schedule-task");
-
-    taskText.textContent =
-      groupedTasks[hour]
-        .map(function(task) {
-          return task.time + " " + task.text;
-        })
-        .join(" / ");
-
-    scheduleItem.appendChild(time);
-    scheduleItem.appendChild(taskText);
-
-    scheduleList.appendChild(scheduleItem);
-  });
-}
-
 
 // ========================
 // タスクのHTMLを作る
