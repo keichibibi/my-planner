@@ -278,7 +278,7 @@ function displayTodos() {
 
     currentData.todos.sort(
         function(a, b) {
-          return a.time.localeCompare(b.time);
+          return (a.time || "").localeCompare(b.time || "");
         }
     );
 
