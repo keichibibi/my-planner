@@ -139,6 +139,21 @@ function getCurrentData() {
     }
 
 
+    // 古いデータ対策
+    if (!allData[dateKey].todos) {
+
+        allData[dateKey].todos = [];
+
+    }
+
+
+    if (!allData[dateKey].notTodos) {
+
+        allData[dateKey].notTodos = [];
+
+    }
+
+
     return allData[dateKey];
 
 }
